@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Input } from '@material-ui/core';
+import { Button, Input, Image } from '@material-ui/core';
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        'https://itunes.apple.com/search?term=drake'
+        `https://itunes.apple.com/search?term=${query}`
       );
       setSongs(response.data.results);
       console.log(songs);
@@ -26,7 +26,10 @@ function App() {
 
         <div>
           {songs.map((el) => (
-            <div key={el.trackId}>{el.trackName}</div>
+            <>
+              <div key={el.trackId}>{el.trackName}</div>
+              <img src={el.artworkUrl100}></img>
+            </>
           ))}
         </div>
       </header>
