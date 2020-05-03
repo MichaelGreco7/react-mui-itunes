@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button, Input } from '@material-ui/core';
 import Nav from './components/Nav';
 import Card from './components/Card';
+import Popover from './components/Popover';
 
 function App() {
   const [songs, setSongs] = useState([]);
