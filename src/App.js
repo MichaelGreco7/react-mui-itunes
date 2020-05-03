@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Input } from '@material-ui/core';
 import Nav from './components/Nav';
+import Card from './components/Card';
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -27,9 +28,7 @@ function App() {
         <div>
           {songs.map((el) => (
             <>
-              <div>{el.collectionName}</div>
-              <div key={el.trackId}>{el.trackName}</div>
-              <img src={el.artworkUrl100}></img>
+              <Card key={el.trackId} el={el}></Card>
             </>
           ))}
         </div>
